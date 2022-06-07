@@ -25,6 +25,7 @@ sd_before
 sd_after <- sd(after)
 sd_after
 
+print(sd_before - sd_after)
 # b
 # carilah nilai t (p-value)
 
@@ -99,6 +100,9 @@ group1 <- subset(myFile, V1=="Kucing Oren")
 group2 <- subset(myFile, V1=="Kucing Hitam")
 group3 <- subset(myFile, V1=="Kucing Putih")
 
+qqnorm(group1$Length)
+qqline(group1$Length)
+
 # b
 # carilah atau periksalah Homogeneity of variances nya , Berapa nilai p yang
 # didapatkan? , Apa hipotesis dan kesimpulan yang dapat diambil ?
@@ -109,6 +113,9 @@ bartlett.test(Length~V1, data=dataoneway)
 # Grup dan beri nama model tersebut model 1.
 qqnorm(group1$Length)
 qqline(group1$Length)
+model1 <- lm(Length~Group, data=myFile)
+
+anova(model1)
 
 # d
 # Jawaban di ss
